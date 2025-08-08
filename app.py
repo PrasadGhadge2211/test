@@ -6,8 +6,7 @@ from dotenv import load_dotenv
 import pytz
 
 load_dotenv()
-ca = certifi.where()
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__)
 MONGO_URI = os.environ.get("MONGODB_URI", "")
 client = MongoClient(MONGO_URI)
 db = client['pharmacy_db']

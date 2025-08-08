@@ -2,10 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash, mak
 from datetime import datetime, timedelta
 from pymongo import MongoClient, ASCENDING, DESCENDING
 import os
-from dotenv import load_dotenv
 import pytz
 
-load_dotenv()
 app = Flask(__name__)
 MONGO_URI = os.environ.get("MONGODB_URI", "")
 client = MongoClient(MONGO_URI)

@@ -3,14 +3,13 @@ from datetime import datetime, timedelta
 from pymongo import MongoClient, ASCENDING, DESCENDING
 import os
 from dotenv import load_dotenv
-import certifi
 import pytz
 
 load_dotenv()
 ca = certifi.where()
 app = Flask(__name__, static_folder='static')
 MONGO_URI = os.environ.get("MONGODB_URI", "")
-client = MongoClient(MONGO_URI, tlsCAFile=ca)
+client = MongoClient(MONGO_URI)
 db = client['pharmacy_db']
 LOCAL_TIMEZONE = pytz.timezone('Asia/Kolkata')
 
